@@ -1,13 +1,9 @@
 "use client";
 
-//need to make constants 
-
 
 
 
 export default function AlpacaGenerator() {
-
-
 
 
     return (
@@ -68,8 +64,6 @@ export default function AlpacaGenerator() {
                             alt="eyes"
                             className="absolute"
                         />
-
-
                     </div>
                     <div >
                         {/* alpaca image will go here */}
@@ -79,7 +73,7 @@ export default function AlpacaGenerator() {
                     <div>
                         {/* accessories */}
                         <p>accessories</p>
-                        <button>accessory 1</button>
+                        <button className="p-2 text-blue-600 border-2 border-blue-600 hover:border-3 rounded-full cursor-pointer">accessory 1</button>
                         <button>accessory 2</button>
                         <button>accessory 3</button>
                         <button>accessory 4</button>
