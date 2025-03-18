@@ -1,3 +1,7 @@
+# Image-Generator
+An image generator website that allows users to generate, combine, and download images
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
