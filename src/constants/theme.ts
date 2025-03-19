@@ -6,7 +6,6 @@ const theme = {
       yellow50: "#fcd33f",
       yellow60: "#e6b60d",
       yellow70: "#cf8e10",
-      blue40: "#8bb7f9",
       blue50: "#5596f6",
       blue60: "#2a7bf4",
       blue70: "#2a5ca7",

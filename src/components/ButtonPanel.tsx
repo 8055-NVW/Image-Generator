@@ -2,50 +2,55 @@
 import { useEffect, useState } from "react"
 import { ATTRIBUTE_MAP, ATTRIBUTES } from "@/constants/imageAttributes"
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    active: boolean
+interface ButtonPanelProps {
+    selectedStyles: { [key: string]: string };
+    setSelectedStyles: (styles: { [key: string]: string }) => void;
 }
 
-export default function ButtonPanel(props: ButtonProps) {
-    const { ...restProps } = props
+export default function ButtonPanel({ selectedStyles, setSelectedStyles }: ButtonPanelProps) {
     const [selectedAttribute, setSelectedAttribute] = useState<string>(ATTRIBUTES[0]);
-    const [selectedStyle, setSelectedStyle] = useState<string>(ATTRIBUTE_MAP[ATTRIBUTES[0]].values[0])
 
     useEffect(() => {
-        setSelectedStyle(ATTRIBUTE_MAP[selectedAttribute]?.values[0] || "");
-    }, [selectedAttribute])
+        setSelectedStyles({
+            ...selectedStyles,
+            [selectedAttribute]: ATTRIBUTE_MAP[selectedAttribute].values[0]
+        });
+    }, [selectedAttribute]);
 
     return (
         <div>
             <div>
-                <h2>ACCESSORIZE THE ALPACAS</h2>
+                <h2 className="text-2xl">ACCESSORIZE THE ALPACAS</h2>
                 {ATTRIBUTES.map((attribute, index) => (
                     <button
-                        onClick={() => setSelectedAttribute(attribute)}
-                        className={`p-2 text-blue-600 border-2 border-blue-600 hover:border-3 rounded-full cursor-pointer 
-                                ${selectedAttribute === attribute ? "bg-blue-200" : ""}`}
                         key={index}
-                        title={attribute}>
+                        onClick={() => setSelectedAttribute(attribute)}
+                        className={`p-2 text-lg text-blue-600 border-2 border-blue-600 hover:border-3 rounded-full cursor-pointer 
+                                ${selectedAttribute === attribute ? "bg-blue-600 text-white" : ""}`}
+                        title={attribute}
+                    >
                         {ATTRIBUTE_MAP[attribute]?.text}
                     </button>
                 ))}
             </div>
             {selectedAttribute && (
                 <div>
-                    <h2>STYLE</h2>
+                    <h2 className="text-2xl">STYLE</h2>
                     {ATTRIBUTE_MAP[selectedAttribute]?.values.map((value, idx) => (
                         <button
                             key={idx}
-                            onClick={() => setSelectedStyle(value)}
+                            onClick={() => setSelectedStyles({ 
+                                ...selectedStyles, 
+                                [selectedAttribute]: value 
+                            })}
                             className={`p-2 text-blue-600 border-2 border-blue-600 hover:border-3 rounded-full cursor-pointer 
-                            ${selectedStyle === value ? "bg-blue-200" : ""}`}>
-                            {value}
+                            ${selectedStyles[selectedAttribute] === value ? "bg-blue-200" : ""}`}
+                        >
+                            {value.replace(/-/g, ' ')}
                         </button>
                     ))}
                 </div>
             )}
         </div>
-    )
+    );
 }
-
-
