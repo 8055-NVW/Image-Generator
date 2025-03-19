@@ -1,7 +1,5 @@
 "use client";
-
-
-
+import ButtonPanel from "./ButtonPanel";
 
 export default function AlpacaGenerator() {
 
@@ -69,26 +67,7 @@ export default function AlpacaGenerator() {
                         {/* alpaca image will go here */}
                     </div>
                 </div>
-                <div>
-                    <div>
-                        {/* accessories */}
-                        <p>accessories</p>
-                        <button className="p-2 text-blue-600 border-2 border-blue-600 hover:border-3 rounded-full cursor-pointer">accessory 1</button>
-                        <button>accessory 2</button>
-                        <button>accessory 3</button>
-                        <button>accessory 4</button>
-                        <button>accessory 5</button>
-                    </div>
-                    <div>
-                        {/* options */}
-                        <p>options</p>
-                        <button>option 1</button>
-                        <button>option 2</button>
-                        <button>option 3</button>
-                        <button>option 4</button>
-                        <button>option 5</button>
-                    </div>
-                </div>
+                <ButtonPanel />
             </div>
         </div>
 
