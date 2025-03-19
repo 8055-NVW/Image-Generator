@@ -1,6 +1,8 @@
+import theme from "./theme"
 //create maps for each accessory
+
 const ACCESSORIES_MAP = {
-    default: "",
+    default: "none",
     flower: "flower",
     earings: "earings",
     glasses: "glasses",
@@ -34,7 +36,7 @@ const MOUTH_MAP = {
 }
 
 const LEG_MAP = {
-    default: "",
+    default: "default",
     bubbleTea: "bubblke-tea",
     cookie: "cookie",
     gameconsole: "game-console",
@@ -69,43 +71,48 @@ const ATTRIBUTE_KEY_MAP = {
 }
 
 // we need to export the atrtribute in an an objectg that can be iterated through 
-export const ATTRIBUTE_MAP = [
-    {
+export const ATTRIBUTE_MAP = {
+    [ATTRIBUTE_KEY_MAP.background]: {
+        key: "background",
+        text: "Background",
+        values: Object.values(theme.colors)
+      },
+    [ATTRIBUTE_KEY_MAP.hair]: {
         key: "hair",
         text: "Hair",
-        values: Object.values(HAIR_MAP)
-    },
-    // [ATTRIBUTE_KEY_MAP.accessories]: {
-    //     key: "accessories",
-    //     text: "Accessories",
-    //     values: Object.values(ACCESSORIES_MAP),
-    //   },
-    //   [ATTRIBUTE_KEY_MAP.leg]: {
-    //     key: "leg",
-    //     text: "Leg",
-    //     values: Object.values(LEG_MAP),
-    //   },
-    //   [ATTRIBUTE_KEY_MAP.eyes]: {
-    //     key: "eyes",
-    //     text: "Eyes",
-    //     values: Object.values(EYES_MAP),
-    //   },
-    //   [ATTRIBUTE_KEY_MAP.mouth]: {
-    //     key: "mouth",
-    //     text: "Mouth",
-    //     values: Object.values(MOUTH_MAP),
-    //   },
-    //   [ATTRIBUTE_KEY_MAP.ears]: {
-    //     key: "ears",
-    //     text: "Ears",
-    //     values: Object.values(EARS_MAP),
-    //   },
-    //   [ATTRIBUTE_KEY_MAP.neck]: {
-    //     key: "neck",
-    //     text: "Neck",
-    //     values: Object.values(NECK_MAP),
-    //   },
-    ]
+        values: Object.values(HAIR_MAP),
+      },
+    [ATTRIBUTE_KEY_MAP.accessories]: {
+        key: "accessories",
+        text: "Accessories",
+        values: Object.values(ACCESSORIES_MAP),
+      },
+      [ATTRIBUTE_KEY_MAP.leg]: {
+        key: "leg",
+        text: "Leg",
+        values: Object.values(LEG_MAP),
+      },
+      [ATTRIBUTE_KEY_MAP.eyes]: {
+        key: "eyes",
+        text: "Eyes",
+        values: Object.values(EYES_MAP),
+      },
+      [ATTRIBUTE_KEY_MAP.mouth]: {
+        key: "mouth",
+        text: "Mouth",
+        values: Object.values(MOUTH_MAP),
+      },
+      [ATTRIBUTE_KEY_MAP.ears]: {
+        key: "ears",
+        text: "Ears",
+        values: Object.values(EARS_MAP),
+      },
+      [ATTRIBUTE_KEY_MAP.neck]: {
+        key: "neck",
+        text: "Neck",
+        values: Object.values(NECK_MAP),
+      },
+}
 
 export const ATTRIBUTES = [
     ATTRIBUTE_KEY_MAP.hair,
