@@ -1,12 +1,10 @@
-
+"use client"
 interface ButtonPanelProps {
     selectedStyles: { [key: string]: string };
 }
 
 export default function AlpacaPreviwer({ selectedStyles }: ButtonPanelProps) {
     const imgPath = "/images/alpaca/";
-
- 
 
     return (
         <>
