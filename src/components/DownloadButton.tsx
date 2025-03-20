@@ -2,21 +2,16 @@
 import { saveAs } from 'file-saver';
 import mergeImages from 'merge-images';
 
-
 interface DownloadButtonProps {
     selectedStyles: { [key: string]: string };
 }
 
 export default function DownloadButton({ selectedStyles }: DownloadButtonProps) {
     const imgPath = "/images/alpaca/";
+    const downloadBtnClass = "mt-4 px-4 py-2 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 cursor-pointer"
 
     const handleDownload = async () => {
-        //const nose = `${imgPath}nose.png`
-        //console.log(nose)
         const images = [
-            //"/images/alpaca/nose.png",
-            //"/public/images/alpaca/nose.png",
-            `${imgPath}nose.png`,
             `${imgPath}neck/${selectedStyles["neck"]}.png`,
             `${imgPath}backgrounds/${selectedStyles["background"]}.png`,
             `${imgPath}ears/${selectedStyles["ears"]}.png`,
@@ -28,6 +23,7 @@ export default function DownloadButton({ selectedStyles }: DownloadButtonProps) 
             selectedStyles["accessories"] !== "None"
                 ? `${imgPath}accessories/${selectedStyles["accessories"]}.png`
                 : null,
+            `${imgPath}nose.png`,
         ].filter(Boolean) as string[];
         try {
             const mergedImage = await mergeImages(images);
@@ -41,8 +37,7 @@ export default function DownloadButton({ selectedStyles }: DownloadButtonProps) 
     return (
         <button
             onClick={handleDownload}
-            className="mt-4 px-4 py-2 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 cursor-pointer"
-        >
+            className={downloadBtnClass}>
             Download 🖼️
         </button>
     );
