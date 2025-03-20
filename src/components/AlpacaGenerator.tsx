@@ -17,7 +17,7 @@ export default function AlpacaGenerator() {
         <div className="flex flex-col m-10 w-screen h-screen">
             <h1 className="text-6xl">Alpaca Generator</h1>
             <div className="flex ">
-                <AlpacaPreviwer selectedStyles={selectedStyles} />
+                <AlpacaPreviwer selectedStyles={selectedStyles} setSelectedStyles={setSelectedStyles}/>
                 <ButtonPanel selectedStyles={selectedStyles} setSelectedStyles={setSelectedStyles} />
             </div>
         </div>

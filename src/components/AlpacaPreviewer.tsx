@@ -1,9 +1,12 @@
 "use client"
+import RandomizerButton from "./RandomizerButton"
+
 interface ButtonPanelProps {
     selectedStyles: { [key: string]: string };
+    setSelectedStyles: (styles: { [key: string]: string }) => void;
 }
 
-export default function AlpacaPreviwer({ selectedStyles }: ButtonPanelProps) {
+export default function AlpacaPreviwer({ selectedStyles, setSelectedStyles }: ButtonPanelProps) {
     const imgPath = "/images/alpaca/";
 
     return (
@@ -48,6 +51,9 @@ export default function AlpacaPreviwer({ selectedStyles }: ButtonPanelProps) {
                             alt={selectedStyles["accessories"]}
                         />
                     )}
+            </div>
+            <div className="relative">
+                <RandomizerButton setSelectedStyles={setSelectedStyles}/>
             </div>
         </>
     )
