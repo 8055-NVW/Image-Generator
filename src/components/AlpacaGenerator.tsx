@@ -2,6 +2,8 @@
 import { ATTRIBUTES, ATTRIBUTE_MAP } from "@/constants/imageAttributes";
 import ButtonPanel from "./ButtonPanel";
 import AlpacaPreviwer from "./AlpacaPreviewer";
+import RandomizerButton from "./RandomizerButton";
+import DownloadButton from "./DownloadButton";
 import { useState } from "react";
 
 export default function AlpacaGenerator() {
@@ -14,10 +16,10 @@ export default function AlpacaGenerator() {
     });
 
     return (
-        <div className="flex flex-col m-10 w-screen h-screen">
-            <h1 className="text-6xl">Alpaca Generator</h1>
-            <div className="flex ">
-                <AlpacaPreviwer selectedStyles={selectedStyles} setSelectedStyles={setSelectedStyles}/>
+        <div className="flex flex-col h-screen max-h-[500px]">
+            <h1 className="text-6xl pb-5">Alpaca Generator</h1>
+            <div className="flex flex-col md:flex-row">
+                <AlpacaPreviwer selectedStyles={selectedStyles} setSelectedStyles={setSelectedStyles} />
                 <ButtonPanel selectedStyles={selectedStyles} setSelectedStyles={setSelectedStyles} />
             </div>
         </div>

@@ -9,6 +9,7 @@ interface ButtonPanelProps {
 
 export default function ButtonPanel({ selectedStyles, setSelectedStyles }: ButtonPanelProps) {
     const [selectedAttribute, setSelectedAttribute] = useState<string>(ATTRIBUTES[0]);
+    const buttonClass = "mx-2 my-1 px-3 py-2 text-blue-600 border-2 border-blue-600 hover:border-3 rounded-full cursor-pointer shadow-md hover:shadow-lg transition-all";
 
     useEffect(() => {
         setSelectedStyles({
@@ -18,15 +19,14 @@ export default function ButtonPanel({ selectedStyles, setSelectedStyles }: Butto
     }, [selectedAttribute]);
 
     return (
-        <div>
+        <div className="px-5">
             <div>
-                <h2 className="text-2xl">ACCESSORIZE THE ALPACAS</h2>
+                <h2 className="text-2xl mx-2 mb-1">ACCESSORIZE THE ALPACAS</h2>
                 {ATTRIBUTES.map((attribute, index) => (
                     <button
                         key={index}
                         onClick={() => setSelectedAttribute(attribute)}
-                        className={`p-2 text-lg text-blue-600 border-2 border-blue-600 hover:border-3 rounded-full cursor-pointer 
-                                ${selectedAttribute === attribute ? "bg-blue-600 text-white" : ""}`}
+                        className={`${buttonClass} ${selectedAttribute === attribute ? "bg-blue-600 text-white" : ""}`}
                         title={attribute}
                     >
                         {ATTRIBUTE_MAP[attribute]?.text}
@@ -34,22 +34,21 @@ export default function ButtonPanel({ selectedStyles, setSelectedStyles }: Butto
                 ))}
             </div>
             {selectedAttribute && (
-                <div>
-                    <h2 className="text-2xl">STYLE</h2>
+                <>
+                    <h2 className="text-2xl mx-2 mb-1">STYLE</h2>
                     {ATTRIBUTE_MAP[selectedAttribute]?.values.map((value, idx) => (
                         <button
                             key={idx}
-                            onClick={() => setSelectedStyles({ 
-                                ...selectedStyles, 
-                                [selectedAttribute]: value 
+                            onClick={() => setSelectedStyles({
+                                ...selectedStyles,
+                                [selectedAttribute]: value
                             })}
-                            className={`p-2 text-blue-600 border-2 border-blue-600 hover:border-3 rounded-full cursor-pointer 
-                            ${selectedStyles[selectedAttribute] === value ? "bg-blue-200" : ""}`}
+                            className={`${buttonClass} ${selectedStyles[selectedAttribute] === value ? "bg-blue-600 text-white" : ""}`}
                         >
                             {value.replace(/-/g, ' ')}
                         </button>
                     ))}
-                </div>
+                </>
             )}
         </div>
     );
