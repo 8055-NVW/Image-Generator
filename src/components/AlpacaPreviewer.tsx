@@ -54,7 +54,7 @@ export default function AlpacaPreviwer({ selectedStyles, setSelectedStyles }: Bu
                         )}
                 </div>
                 <div className="flex justify-between">
-                    <DownloadButton/>
+                    <DownloadButton selectedStyles={selectedStyles}/>
                     <RandomizerButton setSelectedStyles={setSelectedStyles} />
                 </div>
             </div>        
