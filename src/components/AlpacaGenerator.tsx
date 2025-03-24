@@ -2,8 +2,6 @@
 import { ATTRIBUTES, ATTRIBUTE_MAP } from "@/constants/imageAttributes";
 import ButtonPanel from "./ButtonPanel";
 import AlpacaPreviwer from "./AlpacaPreviewer";
-import RandomizerButton from "./RandomizerButton";
-import DownloadButton from "./DownloadButton";
 import { useState } from "react";
 
 export default function AlpacaGenerator() {
